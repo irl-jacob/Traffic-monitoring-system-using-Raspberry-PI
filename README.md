@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🚦 Real-Time Traffic Monitoring System with YOLO
+#  Real-Time Traffic Monitoring System with YOLO
 
 *A software-only computer vision pipeline for real-time vehicle detection, multi-object tracking, line-crossing counting, and dynamic traffic level classification.*
 
