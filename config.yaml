@@ -1,0 +1,43 @@
+# Traffic Monitoring Configuration
+# Video Processing Course - Use Case 15
+
+video:
+  source: "road.mp4"              # Video file path or webcam index (e.g. 0)
+  imgsz: 1280                     # Inference image size
+  conf: 0.12                      # Confidence threshold for aerial vehicle detection
+  frame_skip: 1                   # Process every Nth frame (1 = process every frame)
+
+model:
+  weights: "yolo26n.pt"           # Model weights: yolo26n.pt
+  device: "auto"                  # "auto", "cpu", "cuda", "cuda:0"
+  tracker: "bytetrack.yaml"       # Tracker configuration: "bytetrack.yaml" or "botsort.yaml"
+
+# Vertical counting line crossing both east/west lanes of the roadway
+counting_line:
+  p1: [800, 480]
+  p2: [800, 880]
+
+# Region of interest (ROI) polygon covering the active roadway
+roi_polygon:
+  points:
+    - [100, 480]
+    - [2460, 480]
+    - [2460, 880]
+    - [100, 880]
+
+# Traffic level classification settings
+traffic_level:
+  flow_window_sec: 30             # Rolling window duration in seconds for flow calculation
+  hysteresis_sec: 2.0             # Debounce duration in seconds before changing reported level
+  flow_thresholds:
+    low_max: 8.0                  # Flow < 8 veh/min -> LOW
+    medium_max: 20.0              # Flow 8-20 veh/min -> MEDIUM; > 20 -> HIGH
+  density_thresholds:
+    low_max: 3                    # Density <= 3 veh -> LOW
+    medium_max: 8                 # Density 4-8 veh -> MEDIUM; > 8 -> HIGH
+
+# File logging settings
+logging:
+  csv_path: "outputs/log.csv"
+  summary_path: "outputs/summary.json"
+  log_interval_sec: 1.0           # Interval in seconds to write CSV rows

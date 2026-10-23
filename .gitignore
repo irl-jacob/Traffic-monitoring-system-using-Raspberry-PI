@@ -1,0 +1,42 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Pytest / Coverage caches
+.pytest_cache/
+.coverage
+htmlcov/
+
+# YOLO & Ultralytics model weights and training runs
+*.pt
+*.onnx
+*.engine
+runs/
+
+# Video files (large binaries - as per handover document: videos/ not committed)
+*.mp4
+*.avi
+*.mov
+*.mkv
+videos/*
+!videos/.gitkeep
+
+# Generated output artifacts (media and logs)
+outputs/*
+!outputs/.gitkeep
+
+# IDEs & OS artifacts
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*~
+tmp/
